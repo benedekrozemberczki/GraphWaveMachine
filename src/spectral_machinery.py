@@ -39,7 +39,8 @@ class WaveletMachine:
         """
         self.real_and_imaginary = []
         for node in tqdm(range(0, self.number_of_nodes)):
-            wavelet_coefficients = [np.mean(np.exp(self.single_wavelet_generator(node)*step*1j)) for step in self.steps]
+            wave = self.single_wavelet_generator(node)
+            wavelet_coefficients = [np.mean(np.exp(wave*1*step*1j)) for step in self.steps]
             self.real_and_imaginary.append(wavelet_coefficients)
         self.real_and_imaginary = np.array(self.real_and_imaginary)
 
