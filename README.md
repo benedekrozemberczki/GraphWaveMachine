@@ -1,14 +1,14 @@
 # WaveletMachine
 An implementation of "Learning Structural Node Embeddings Via Diffusion Wavelets".
 <p align="justify">
-GRAF is a graph embedding algorithm which learns a clustering based on features extracted with an inner product graph factorization machine. The procedure places nodes in an abstract feature space where the inner product of node features reconstructs the neighbourhood overlap matrix. GRAF is a specific application of an inner product factorization machine. The implementation supports GPU use.
+GraphWave is a structural node embedding algorithm which learns an embedding based on the characteristic function of graph diffusion wavelets. The procedure places nodes in an abstract feature space where nodes with similar features have similar structural roles.
 </p>
 
-This repository provides a reference implementation for GRAF as it is used as a benchmark in the paper:
+This repository provides a reference implementation for GraphWave as it is used in the paper:
 > GEMSEC: Graph Embedding with Self Clustering.
-> [Benedek Rozemberczki](http://homepages.inf.ed.ac.uk/s1668259/), [Ryan Davies](https://www.inf.ed.ac.uk/people/students/Ryan_Davies.html), [Rik Sarkar](https://homepages.inf.ed.ac.uk/rsarkar/) and [Charles Sutton](http://homepages.inf.ed.ac.uk/csutton/) .
+> [Benedek Rozemberczki](http://homepages.inf.ed.ac.uk/s1668259/) and [Rik Sarkar](https://homepages.inf.ed.ac.uk/rsarkar/).
 > arXiv, 2018.
->https://arxiv.org/abs/1802.03997
+>https://arxiv.org/abs/
 
 
 ### Requirements
