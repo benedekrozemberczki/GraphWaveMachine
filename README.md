@@ -1,15 +1,9 @@
 # WaveletMachine
-An implementation of "Learning Structural Node Embeddings Via Diffusion Wavelets".
+An implementation of the "GraphWave" procedure described in "Learning Structural Node Embeddings Via Diffusion Wavelets" by Claire Donnat, Marinka Zitnik, David Hallac and Jure Leskovec.
+
 <p align="justify">
 GraphWave is a structural node embedding algorithm which learns an embedding based on the characteristic function of graph diffusion wavelets. The procedure places nodes in an abstract feature space where nodes with similar features have similar structural roles.
 </p>
-
-This repository provides a reference implementation for GraphWave as it is used in the paper:
-> GEMSEC: Graph Embedding with Self Clustering.
-> [Benedek Rozemberczki](http://homepages.inf.ed.ac.uk/s1668259/) and [Rik Sarkar](https://homepages.inf.ed.ac.uk/rsarkar/).
-> arXiv, 2018.
->https://arxiv.org/abs/
-
 
 ### Requirements
 
@@ -73,14 +67,3 @@ Creating a clustered embedding of the default dataset in 128 dimensions and 10 c
 ```
 python src/factorizer.py --dimensions 128 --cluster-number 10
 ```
-
-### Citing
-
-If you find GRAF useful in your research, please consider citing the following paper:
-
->@misc{rozemberczki2018GEMSEC,    
-  author={Benedek Rozemberczki and Ryan Davies and Rik Sarkar and Charles Sutton},    
-  title={GEMSEC: Graph Embedding with Self Clustering},   
-  year={2018},    
-  eprint={arXiv:1802.03997}}
-
