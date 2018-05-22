@@ -1,9 +1,14 @@
 # WaveletMachine
-An implementation of the "GraphWave" procedure described in "Learning Structural Node Embeddings Via Diffusion Wavelets" by Claire Donnat, Marinka Zitnik, David Hallac and Jure Leskovec.
 
 <p align="justify">
 GraphWave is a structural node embedding algorithm which learns an embedding based on the characteristic function of graph diffusion wavelets. The procedure places nodes in an abstract feature space where nodes with similar features have similar structural roles.
 </p>
+
+This repository provides an implementation for GraphWave as it is described in:
+> Learning Structural Node Embeddings Via Diffusion Wavelets.
+> Claire Donnat, Marinka Zitnik, David Hallac and Jure Leskovec.
+> Proceedings of the  24th SIGKDD Conference on Knowledge Discovery and Data Mining (KDD-18).
+
 
 ### Requirements
 
