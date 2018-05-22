@@ -23,7 +23,7 @@ The code takes an input graph in a csv file. Every row indicates an edge between
 
 ### Options
 
-Learning of the embedding is handled by the `src/factorizer.py` script which provides the following command line arguments.
+Learning of the embedding is handled by the `src/main.py` script which provides the following command line arguments.
 
 ```
   --mechanism STR               Wavelet generation method.                                    Default is `exact`.
