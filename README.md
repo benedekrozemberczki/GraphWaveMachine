@@ -38,28 +38,22 @@ Learning of the embedding is handled by the `src/factorizer.py` script which pro
 
 ### Examples
 
-The following commands learn a graph embedding and cluster center and writes them to disk. The node representations are ordered by the ID.
+The following commands learn a graph embedding and writes it to disk. The node representations are ordered by the ID.
 
-Creating a GRAF embedding of the default dataset with the default hyperparameter settings. Saving the embedding, cluster centres and the log file at the default path.
-
-```
-python src/factorizer.py
-```
-
-Turning off the model saving.
+Creating a GraphWave embedding of the default dataset with the default hyperparameter settings. Saving the embedding at the default path.
 
 ```
-python src/factorizer.py --dump-matrices False
+python src/main.py
 ```
 
 Creating an embedding of an other dataset the `Facebook Companies`. Saving the output and the log in a custom place.
 
 ```
-python src/factorizer.py --input data/company_edges.csv  --embedding-output output/embeddings/company_embedding.csv --log-output output/cluster_means/company_means.csv
+python src/main.py --input data/company_edges.csv  --output output/company_embedding.csv
 ```
 
-Creating a clustered embedding of the default dataset in 128 dimensions and 10 cluster centers.
+Creating an embedding of the default dataset in 128 dimensions.
 
 ```
-python src/factorizer.py --dimensions 128 --cluster-number 10
+python src/main.py --sample-number 128
 ```
