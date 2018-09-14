@@ -4,6 +4,10 @@
 GraphWave is a structural node embedding algorithm which learns an embedding based on the characteristic function of graph diffusion wavelets. The procedure places nodes in an abstract feature space where nodes with similar features have similar structural roles.
 </p>
 
+<p align="center">
+  <img width="720" src="structural.jpeg">
+</p>
+
 This repository provides an implementation for GraphWave as it is described in:
 > Learning Structural Node Embeddings Via Diffusion Wavelets.
 > Claire Donnat, Marinka Zitnik, David Hallac and Jure Leskovec.
