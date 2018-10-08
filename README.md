@@ -31,18 +31,21 @@ pygsp             0.5.1
 The code takes an input graph in a csv file. Every row indicates an edge between two nodes separated by a comma. The first row is a header. Nodes should be indexed starting with 0. A sample graph for the `Facebook Restaurants` dataset is included in the  `data/` directory.
 
 ### Options
-
 Learning of the embedding is handled by the `src/main.py` script which provides the following command line arguments.
 
+#### Input and output options
 ```
-  --mechanism STR               Wavelet generation method.                                    Default is `exact`.
-  --input STR                   Input dataset.                                                Default is `data/food_edges.csv`.
-  --output STR                  Output dataset.                                               Default is `output/embedding.csv`.
-  --heat-coefficient FLOAT      Heat kernel coefficient.                                      Default is 1000.0.
-  --sample-number INT           Number of characteristic function samples.                    Default is 50.
-  --approximation INT           Order of Chebyshev polynomial.                                Default is 100.
-  --step-size INT               Sampling step size.                                           Default is 20.
-  --switch INT                  Graph size when approximation is the automatic choice.        Default is 100.
+  --input     STR    Input dataset.    Default is `data/food_edges.csv`.
+  --output    STR    Output dataset.   Default is `output/embedding.csv`.
+```
+#### Model options
+```
+  --mechanism           STR          Wavelet generation method.                       Default is `exact`.
+  --heat-coefficient    FLOAT        Heat kernel coefficient.                         Default is 1000.0.
+  --sample-number       INT          Number of characteristic function samples.       Default is 50.
+  --approximation       INT          Order of Chebyshev polynomial.                   Default is 100.
+  --step-size           INT          Sampling step size.                              Default is 20.
+  --switch              INT          Graph size to switch to approximation.           Default is 100.
 ```
 
 ### Examples
