@@ -40,12 +40,12 @@ Learning of the embedding is handled by the `src/main.py` script which provides 
 ```
 #### Model options
 ```
-  --mechanism           STR          Wavelet generation method.                       Default is `exact`.
-  --heat-coefficient    FLOAT        Heat kernel coefficient.                         Default is 1000.0.
-  --sample-number       INT          Number of characteristic function samples.       Default is 50.
-  --approximation       INT          Order of Chebyshev polynomial.                   Default is 100.
-  --step-size           INT          Sampling step size.                              Default is 20.
-  --switch              INT          Graph size to switch to approximation.           Default is 100.
+  --mechanism           STR          Wavelet generation method.                          Default is `exact`.
+  --heat-coefficient    FLOAT        Heat kernel coefficient.                            Default is 1000.0.
+  --sample-number       INT          Number of characteristic function samples.          Default is 50.
+  --approximation       INT          Order of Chebyshev polynomial.                      Default is 100.
+  --step-size           INT          Sampling step size.                                 Default is 20.
+  --switch              INT          Graph size at procedure switch to approximation.    Default is 100.
 ```
 
 ### Examples
