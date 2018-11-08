@@ -1,4 +1,4 @@
-# WaveletMachine
+# GraphWave
 
 <p align="justify">
 GraphWave is a structural node embedding algorithm which learns an embedding based on the characteristic function of graph diffusion wavelets. The procedure places nodes in an abstract feature space where nodes with similar features have similar structural roles.
