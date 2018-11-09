@@ -21,7 +21,7 @@ class WaveletMachine:
         if self.number_of_nodes > self.settings.switch:
             self.settings.mechanism = "approximate"
 
-        self.steps = map(lambda x: x*self.settings.step_size, range(0, self.settings.sample_number))
+        self.steps = list(map(lambda x: x*self.settings.step_size, range(0, self.settings.sample_number)))
 
     def single_wavelet_generator(self, node):
         """
@@ -91,6 +91,6 @@ class WaveletMachine:
         Transofrming the numpy array with real and imaginary values to a pandas dataframe and saving it as a csv.
         """
         self.real_and_imaginary = np.concatenate([self.real_and_imaginary.real, self.real_and_imaginary.imag], axis = 1)
-        columns = map(lambda x: "reals_" + str(x),range(0,self.settings.sample_number)) + map(lambda x: "imags_" + str(x),range(0,self.settings.sample_number)) 
+        columns = list(map(lambda x: "reals_" + str(x),range(0,self.settings.sample_number))) + list(map(lambda x: "imags_" + str(x),range(0,self.settings.sample_number)))
         self.real_and_imaginary = pd.DataFrame(self.real_and_imaginary, columns = columns)
         self.real_and_imaginary.to_csv(self.settings.output, index = None)

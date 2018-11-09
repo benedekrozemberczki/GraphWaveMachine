@@ -1,7 +1,19 @@
 import pandas as pd
 import networkx as nx
-from spectral_machinery import WaveletMachine
+from texttable import Texttable
 from parser import parameter_parser
+from spectral_machinery import WaveletMachine
+
+def tab_printer(args):
+    """
+    Function to print the logs in a nice tabular format.
+    :param args: Parameters used for the model.
+    """
+    args = vars(args)
+    keys = sorted(args.keys())
+    tab = Texttable() 
+    tab.add_rows([["Parameter", "Value"]] +  [[k.replace("_"," ").capitalize(),args[k]] for k in keys])
+    print(tab.draw())
 
 def read_graph(path):
     """
@@ -11,10 +23,13 @@ def read_graph(path):
     """
     edge_list = pd.read_csv(path).values.tolist()
     graph = nx.from_edgelist(edge_list)
+    graph.remove_edges_from(graph.selfloop_edges())
     return graph
 
 if __name__ == "__main__":
+    
     settings = parameter_parser()
+    tab_printer(settings)
     G = read_graph(settings.input)
     machine = WaveletMachine(G,settings)
     machine.create_embedding()
