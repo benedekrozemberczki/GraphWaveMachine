@@ -45,7 +45,7 @@ Learning of the embedding is handled by the `src/main.py` script which provides 
   --sample-number       INT          Number of characteristic function samples.          Default is 50.
   --approximation       INT          Order of Chebyshev polynomial.                      Default is 100.
   --step-size           INT          Sampling step size.                                 Default is 20.
-  --switch              INT          Graph size at procedure switch to approximation.    Default is 100.
+  --switch              INT          Graph size at procedure switches to approximation.  Default is 100.
 ```
 
 ### Examples
