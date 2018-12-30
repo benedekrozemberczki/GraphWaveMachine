@@ -21,7 +21,7 @@ class WaveletMachine:
         if self.number_of_nodes > self.settings.switch:
             self.settings.mechanism = "approximate"
 
-        self.steps = list(map(lambda x: x*self.settings.step_size, range(0, self.settings.sample_number)))
+        self.steps = [x*self.settings.step_size for x in range(self.settings.sample_number)]
 
     def single_wavelet_generator(self, node):
         """
@@ -75,8 +75,6 @@ class WaveletMachine:
         self.chebyshev = pygsp.filters.approximations.compute_cheby_coeff(self.heat_filter, m = self.settings.approximation)
         self.approximate_wavelet_calculator()
 
-
-
     def create_embedding(self):
         """
         Depending the mechanism setting creating an exact or approximate embedding.
@@ -88,9 +86,12 @@ class WaveletMachine:
 
     def transform_and_save_embedding(self):
         """
-        Transofrming the numpy array with real and imaginary values to a pandas dataframe and saving it as a csv.
+        Transforming the numpy array with real and imaginary values to a pandas dataframe and saving it as a csv.
         """
+        print("\nSaving the embedding.")
         self.real_and_imaginary = np.concatenate([self.real_and_imaginary.real, self.real_and_imaginary.imag], axis = 1)
-        columns = list(map(lambda x: "reals_" + str(x),range(0,self.settings.sample_number))) + list(map(lambda x: "imags_" + str(x),range(0,self.settings.sample_number)))
+        columns_1 = ["reals_" + str(x) for x in range(self.settings.sample_number)]
+        columns_2 = ["imags_" + str(x) for x in range(self.settings.sample_number)]
+        columns = columns_1 + columns_2
         self.real_and_imaginary = pd.DataFrame(self.real_and_imaginary, columns = columns)
         self.real_and_imaginary.to_csv(self.settings.output, index = None)

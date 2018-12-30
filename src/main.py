@@ -27,7 +27,6 @@ def read_graph(path):
     return graph
 
 if __name__ == "__main__":
-    
     settings = parameter_parser()
     tab_printer(settings)
     G = read_graph(settings.input)
