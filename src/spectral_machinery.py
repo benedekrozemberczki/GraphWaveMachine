@@ -21,7 +21,7 @@ class WaveletMachine:
         if self.number_of_nodes > self.settings.switch:
             self.settings.mechanism = "approximate"
 
-        self.steps = [x*self.settings.step_size for x in range(self.settings.sample_number)]
+        self.steps = np.array([x*self.settings.step_size for x in range(self.settings.sample_number)]).reshape(-1,1)
 
     def single_wavelet_generator(self, node):
         """
@@ -33,16 +33,24 @@ class WaveletMachine:
         wavelet_coefficients = np.dot(np.dot(np.dot(self.eigen_vectors,np.diag(np.exp(-self.settings.heat_coefficient*self.eigen_values))),np.transpose(self.eigen_vectors)), impulse)
         return wavelet_coefficients
 
+    def calculate_real_and_imaginary(self, wavelet_coefficients):
+        scores = np.outer(self.steps, wavelet_coefficients)
+        imag = np.mean(np.sin(scores), axis = 1)
+        real = np.mean(np.cos(scores), axis = 1)
+        features = np.concatenate([real,imag])
+        self.real_and_imaginary.append(features)
+
     def exact_wavelet_calculator(self):
         """
         Calculates the structural role embedding using the exact eigenvalue decomposition.
         """
         self.real_and_imaginary = []
         for node in tqdm(range(0, self.number_of_nodes)):
-            wave = self.single_wavelet_generator(node)
-            wavelet_coefficients = [np.mean(np.exp(wave*1*step*1j)) for step in self.steps]
-            self.real_and_imaginary.append(wavelet_coefficients)
+            wavelet_coefficients = self.single_wavelet_generator(node)
+            self.calculate_real_and_imaginary(wavelet_coefficients)
         self.real_and_imaginary = np.array(self.real_and_imaginary)
+
+
 
     def exact_structural_wavelet_embedding(self):
         """
@@ -62,9 +70,9 @@ class WaveletMachine:
             impulse = np.zeros((self.number_of_nodes))
             impulse[node] = 1
             wavelet_coefficients = pygsp.filters.approximations.cheby_op(self.G, self.chebyshev, impulse)
-            self.real_and_imaginary.append([np.mean(np.exp(wavelet_coefficients*1*step*1j)) for step in self.steps])
+            self.calculate_real_and_imaginary(wavelet_coefficients)
         self.real_and_imaginary = np.array(self.real_and_imaginary)
-
+        print(self.real_and_imaginary.shape)
 
     def approximate_structural_wavelet_embedding(self):
         """
@@ -89,7 +97,6 @@ class WaveletMachine:
         Transforming the numpy array with real and imaginary values to a pandas dataframe and saving it as a csv.
         """
         print("\nSaving the embedding.")
-        self.real_and_imaginary = np.concatenate([self.real_and_imaginary.real, self.real_and_imaginary.imag], axis = 1)
         columns_1 = ["reals_" + str(x) for x in range(self.settings.sample_number)]
         columns_2 = ["imags_" + str(x) for x in range(self.settings.sample_number)]
         columns = columns_1 + columns_2

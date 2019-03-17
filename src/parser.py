@@ -20,7 +20,7 @@ def parameter_parser():
 
     parser.add_argument("--output",
                         nargs = "?",
-                        default = "./output/embedding.csv",
+                        default = "./output/embeddingew_n.csv",
 	                help = "Path to the structural embedding. Default is embedding.csv.")
 
     parser.add_argument("--heat-coefficient",
