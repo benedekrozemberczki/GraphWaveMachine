@@ -20,7 +20,7 @@ def parameter_parser():
 
     parser.add_argument("--output",
                         nargs = "?",
-                        default = "./output/embeddingew_n.csv",
+                        default = "./output/embedding.csv",
 	                help = "Path to the structural embedding. Default is embedding.csv.")
 
     parser.add_argument("--heat-coefficient",
@@ -47,5 +47,14 @@ def parameter_parser():
                         type = int,
                         default = 100,
 	                help = "Number of dimensions. Default is 100.")
+
+    parser.add_argument("--node-label-type",
+                        type=str,
+                        default= "int",
+                        help = "Used for sorting index of output embedding. One of 'int', 'string', or 'float'. Default is 'int'")
+
+    parser.add_argument("--edgelist-input",
+                        action='store_true',
+                        help="Use NetworkX's edgelist format for input instead of CSV. Default is False")
 
     return parser.parse_args()

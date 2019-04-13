@@ -15,21 +15,26 @@ def tab_printer(args):
     tab.add_rows([["Parameter", "Value"]] +  [[k.replace("_"," ").capitalize(),args[k]] for k in keys])
     print(tab.draw())
 
-def read_graph(path):
+def read_graph(settings):
     """
     Reading the edge list from the path and returning the networkx graph object.
     :param path: Path to the edge list.
     :return graph: Graph from edge list.
     """
-    edge_list = pd.read_csv(path).values.tolist()
-    graph = nx.from_edgelist(edge_list)
-    graph.remove_edges_from(graph.selfloop_edges())
+    print(settings.edgelist_input)
+    if settings.edgelist_input:
+        print('using edgelist input')
+        graph = nx.read_edgelist(settings.input)
+    else:
+        edge_list = pd.read_csv(settings.input).values.tolist()
+        graph = nx.from_edgelist(edge_list)
+        graph.remove_edges_from(graph.selfloop_edges())
     return graph
 
 if __name__ == "__main__":
     settings = parameter_parser()
     tab_printer(settings)
-    G = read_graph(settings.input)
+    G = read_graph(settings)
     machine = WaveletMachine(G,settings)
     machine.create_embedding()
     machine.transform_and_save_embedding()
