@@ -5,7 +5,7 @@ GraphWave is a structural node embedding algorithm which learns an embedding bas
 </p>
 
 <p align="center">
-  <img width="720" src="structural.jpeg">
+  <img width="720" src="grapwave.png">
 </p>
 
 This repository provides an implementation for GraphWave as it is described in:
