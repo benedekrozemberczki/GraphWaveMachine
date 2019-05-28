@@ -1,5 +1,7 @@
 # GraphWave
-
+	<img src="https://img.shields.io/badge/stars-50+-blue.svg"/>
+        <img src="https://img.shields.io/badge/forks-10+-blue.svg"/>
+	<img src="https://img.shields.io/badge/license-MIT-blue.svg"/>
 <p align="justify">
 GraphWave is a structural node embedding algorithm which learns an embedding based on the characteristic function of graph diffusion wavelets. The procedure places nodes in an abstract feature space where nodes with similar features have similar structural roles.
 </p>
