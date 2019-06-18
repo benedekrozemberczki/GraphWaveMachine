@@ -1,14 +1,16 @@
 # GraphWave <img src="https://img.shields.io/badge/stars-60+-blue.svg"/> <img src="https://img.shields.io/badge/forks-10+-blue.svg"/> <img src="https://img.shields.io/badge/license-MIT-blue.svg"/>
-	
+
+<p align="center">
+  <img width="720" src="graphwave.png">
+</p>
+
 <p align="justify">
+	
 ### Abstract
 
 Nodes residing in different parts of a graph can have similar structural roles within their local network topology. The identification of such roles provides key insight into the organization of networks and can be used for a variety of machine learning tasks. However, learning structural representations of nodes is a challenging problem, and it has typically involved manually specifying and tailoring topological features for each node. In this paper, we develop GraphWave, a method that represents each node's network neighborhood via a low-dimensional embedding by leveraging heat wavelet diffusion patterns. Instead of training on hand-selected features, GraphWave learns these embeddings in an unsupervised way. We mathematically prove that nodes with similar network neighborhoods will have similar GraphWave embeddings even though these nodes may reside in very different parts of the network, and our method scales linearly with the number of edges. Experiments in a variety of different settings demonstrate GraphWave's real-world potential for capturing structural roles in networks, and our approach outperforms existing state-of-the-art baselines in every experiment, by as much as 137%. 
 </p>
 
-<p align="center">
-  <img width="720" src="graphwave.png">
-</p>
 
 This repository provides an implementation for GraphWave as it is described in:
 > Learning Structural Node Embeddings Via Diffusion Wavelets.
