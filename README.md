@@ -1,4 +1,4 @@
-# GraphWave <img src="https://img.shields.io/badge/stars-60+-blue.svg"/> <img src="https://img.shields.io/badge/forks-10+-blue.svg"/> <img src="https://img.shields.io/badge/license-MIT-blue.svg"/>
+# GraphWave ![GitHub stars](https://img.shields.io/github/stars/benedekrozemberczki/GraphWaveMachine.svg?style=plastic) ![GitHub forks](https://img.shields.io/github/forks/benedekrozemberczki/GraphWaveMachine.svg?color=blue&style=plastic) ![License](https://img.shields.io/github/license/benedekrozemberczki/GraphWaveMachine.svg?color=blue&style=plastic)
 
 <p align="center">
   <img width="720" src="graphwave.png">
