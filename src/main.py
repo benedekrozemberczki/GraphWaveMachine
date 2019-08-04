@@ -21,9 +21,7 @@ def read_graph(settings):
     :param path: Path to the edge list.
     :return graph: Graph from edge list.
     """
-    print(settings.edgelist_input)
     if settings.edgelist_input:
-        print('using edgelist input')
         graph = nx.read_edgelist(settings.input)
     else:
         edge_list = pd.read_csv(settings.input).values.tolist()
