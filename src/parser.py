@@ -5,7 +5,6 @@ def parameter_parser():
     """
     A method to parse up command line parameters.
     """
-
     parser = argparse.ArgumentParser(description = "Run WaveletMachine.")
 
     parser.add_argument("--mechanism",
@@ -49,12 +48,12 @@ def parameter_parser():
 	                help = "Number of dimensions. Default is 100.")
 
     parser.add_argument("--node-label-type",
-                        type=str,
-                        default= "int",
+                        type = str,
+                        default = "int",
                         help = "Used for sorting index of output embedding. One of 'int', 'string', or 'float'. Default is 'int'")
 
     parser.add_argument("--edgelist-input",
-                        action='store_true',
-                        help="Use NetworkX's edgelist format for input instead of CSV. Default is False")
-
+                        action = 'store_true',
+                        help = "Use NetworkX's edgelist format for input instead of CSV. Default is False")
+	
     return parser.parse_args()
