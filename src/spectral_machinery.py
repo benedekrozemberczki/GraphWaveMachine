@@ -1,9 +1,9 @@
-import networkx as nx
-import numpy as np
 import pygsp
 import random
+import numpy as np
 import pandas as pd
 from tqdm import tqdm
+import networkx as nx
 from pydoc import locate
 
 class WaveletMachine:
