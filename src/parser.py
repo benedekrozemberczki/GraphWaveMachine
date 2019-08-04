@@ -5,7 +5,7 @@ def parameter_parser():
     """
     A method to parse up command line parameters.
     """
-    parser = argparse.ArgumentParser(description = "Run WaveletMachine.")
+    parser = argparse.ArgumentParser(description = "Run GraphWave.")
 
     parser.add_argument("--mechanism",
                         nargs = "?",
