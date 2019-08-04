@@ -40,7 +40,7 @@ class WaveletMachine:
         Calculates the structural role embedding using the exact eigenvalue decomposition.
         """
         self.real_and_imaginary = []
-        for node in tqdm(range(0, self.number_of_nodes)):
+        for node in tqdm(range(self.number_of_nodes)):
             wave = self.single_wavelet_generator(node)
             wavelet_coefficients = [np.mean(np.exp(wave*1*step*1j)) for step in self.steps]
             self.real_and_imaginary.append(wavelet_coefficients)
