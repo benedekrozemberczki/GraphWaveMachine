@@ -16,7 +16,7 @@ class WaveletMachine:
         :param G: Input networkx graph object.
         :param settings: argparse object with settings.
         """
-        self.index=G.nodes()
+        self.index = G.nodes()
         self.G = pygsp.graphs.Graph(nx.adjacency_matrix(G))
         self.number_of_nodes = len(nx.nodes(G))
         self.settings = settings
