@@ -60,7 +60,7 @@ class WaveletMachine:
         Given the Chebyshev polynomial, graph the approximate embedding is calculated. 
         """
         self.real_and_imaginary = []
-        for node in tqdm(range(0,self.number_of_nodes)):
+        for node in tqdm(range(self.number_of_nodes)):
             impulse = np.zeros((self.number_of_nodes))
             impulse[node] = 1
             wavelet_coefficients = pygsp.filters.approximations.cheby_op(self.G, self.chebyshev, impulse)
