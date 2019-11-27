@@ -1,7 +1,9 @@
+"""Running the GraphWave machine."""
+
 import pandas as pd
 import networkx as nx
 from texttable import Texttable
-from parser import parameter_parser
+from param_parser import parameter_parser
 from spectral_machinery import WaveletMachine
 
 def tab_printer(args):
@@ -11,8 +13,9 @@ def tab_printer(args):
     """
     args = vars(args)
     keys = sorted(args.keys())
-    tab = Texttable() 
-    tab.add_rows([["Parameter", "Value"]] +  [[k.replace("_"," ").capitalize(),args[k]] for k in keys])
+    tab = Texttable()
+    tab.add_rows([["Parameter", "Value"]])
+    tab.add_rows([[k.replace("_", " ").capitalize(), args[k]] for k in keys])
     print(tab.draw())
 
 def read_graph(settings):
@@ -33,6 +36,6 @@ if __name__ == "__main__":
     settings = parameter_parser()
     tab_printer(settings)
     G = read_graph(settings)
-    machine = WaveletMachine(G,settings)
+    machine = WaveletMachine(G, settings)
     machine.create_embedding()
     machine.transform_and_save_embedding()
