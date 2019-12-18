@@ -29,7 +29,7 @@ def read_graph(settings):
     else:
         edge_list = pd.read_csv(settings.input).values.tolist()
         graph = nx.from_edgelist(edge_list)
-        graph.remove_edges_from(graph.selfloop_edges())
+        graph.remove_edges_from(nx.selfloop_edges(graph))
     return graph
 
 if __name__ == "__main__":
