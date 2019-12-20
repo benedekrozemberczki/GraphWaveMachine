@@ -73,7 +73,6 @@ class WaveletMachine:
             self.real_and_imaginary.append(real_imag)
         self.real_and_imaginary = np.array(self.real_and_imaginary)
 
-
     def approximate_structural_wavelet_embedding(self):
         """
         Estimating the largest eigenvalue.
