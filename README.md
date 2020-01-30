@@ -57,18 +57,18 @@ Learning of the embedding is handled by the `src/main.py` script which provides 
 <p align="justify">
 The following commands learn a graph embedding and writes it to disk. The node representations are ordered by the ID. Creating a GraphWave embedding of the default dataset with the default hyperparameter settings. Saving the embedding at the default path.</p>
 
-```
-python src/main.py
+```sh
+$ python src/main.py
 ```
 
 Creating an embedding of an other dataset the `Facebook Companies`. Saving the output and the log in a custom place.
 
-```
-python src/main.py --input data/company_edges.csv  --output output/company_embedding.csv
+```sh
+$ python src/main.py --input data/company_edges.csv  --output output/company_embedding.csv
 ```
 
 Creating an embedding of the default dataset in 128 dimensions.
 
-```
-python src/main.py --sample-number 128
+```sh
+$ python src/main.py --sample-number 128
 ```
