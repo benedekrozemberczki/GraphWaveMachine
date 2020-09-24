@@ -1,6 +1,6 @@
 GraphWave 
 ========================================
-![License](https://img.shields.io/github/license/benedekrozemberczki/GraphWaveMachine.svg?color=blue&style=plastic) [![Arxiv](https://img.shields.io/badge/ArXiv-1710.10321-orange.svg?color=blue&style=plastic)](https://arxiv.org/abs/1710.10321) ![Astro](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fastronomer.ullaakut.eu%2Fshields%3Fowner%3Dbenedekrozemberczki%26name%3DGraphWaveMachine) [![codebeat badge](https://codebeat.co/badges/2cb3496f-f6b1-4c4c-9cdb-9f92ab9d7274)](https://codebeat.co/projects/github-com-benedekrozemberczki-graphwavemachine-master)
+![License](https://img.shields.io/github/license/benedekrozemberczki/GraphWaveMachine.svg?color=blue&style=plastic) [![Arxiv](https://img.shields.io/badge/ArXiv-1710.10321-orange.svg?color=blue&style=plastic)](https://arxiv.org/abs/1710.10321) [![codebeat badge](https://codebeat.co/badges/2cb3496f-f6b1-4c4c-9cdb-9f92ab9d7274)](https://codebeat.co/projects/github-com-benedekrozemberczki-graphwavemachine-master)
 
 <p align="center">
   <img width="720" src="graphwave.png">
