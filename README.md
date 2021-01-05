@@ -74,3 +74,9 @@ Creating an embedding of the default dataset in 128 dimensions.
 ```sh
 $ python src/main.py --sample-number 128
 ```
+
+--------------------------------------------------------------------------------
+
+**License**
+
+- [GNU License](https://github.com/benedekrozemberczki/GraphWaveMachine/blob/master/LICENSE)
