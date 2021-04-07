@@ -19,7 +19,7 @@ This repository provides an implementation for GraphWave as it is described in:
 > Claire Donnat, Marinka Zitnik, David Hallac and Jure Leskovec.
 > Proceedings of the  24th SIGKDD Conference on Knowledge Discovery and Data Mining (KDD-18).
 
-The dense reference implementation is available [[here]](https://github.com/snap-stanford/graphwave).
+The **dense** reference implementation is available [[here]](https://github.com/snap-stanford/graphwave).
 
 ### Requirements
 
