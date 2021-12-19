@@ -81,4 +81,4 @@ $ python src/main.py --sample-number 128
 
 - [GNU License](https://github.com/benedekrozemberczki/GraphWaveMachine/blob/master/LICENSE)
 
----------------------------------------------------------------------
+-------------------------------------------------
