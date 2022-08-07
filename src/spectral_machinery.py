@@ -7,6 +7,7 @@ import pandas as pd
 from tqdm import tqdm
 import networkx as nx
 from pydoc import locate
+import concurrent.futures
 
 class WaveletMachine:
     """
@@ -60,18 +61,38 @@ class WaveletMachine:
         self.eigen_vectors = self.G.U
         self.exact_wavelet_calculator()
 
-    def approximate_wavelet_calculator(self):
+    def approximate_wavelet_calculator(self, max_workers=-1):
         """
         Given the Chebyshev polynomial, graph the approximate embedding is calculated.
+        :param max_workers: if given a postive number, the calculator will be performed in muti-threading way
         """
         self.real_and_imaginary = []
-        for node in tqdm(range(self.number_of_nodes)):
-            impulse = np.zeros((self.number_of_nodes))
-            impulse[node] = 1
-            wave_coeffs = pygsp.filters.approximations.cheby_op(self.G, self.chebyshev, impulse)
-            real_imag = [np.mean(np.exp(wave_coeffs*1*step*1j)) for step in self.steps]
-            self.real_and_imaginary.append(real_imag)
+        if not max_workers:
+            for node in tqdm(range(self.number_of_nodes)):
+                self.real_and_imaginary.append(self._load_real_imag(node))
+        else:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+                futures = [
+                    executor.submit(self._load_real_imag, node,)
+                    for node in range(self.number_of_nodes)
+                ]
+
+                for future in tqdm(
+                        concurrent.futures.as_completed(futures),
+                        total=len(futures),
+                        desc='load real_imag of nodes in muti-threading way',
+                ):
+                    real_imag = future.result()
+                    self.real_and_imaginary.append(real_imag)
+                        
         self.real_and_imaginary = np.array(self.real_and_imaginary)
+
+    def _load_real_imag(self, node: int):
+        impulse = np.zeros((self.number_of_nodes))
+        impulse[node] = 1
+        wave_coeffs = pygsp.filters.approximations.cheby_op(self.G, self.chebyshev, impulse)
+        real_imag = [np.mean(np.exp(wave_coeffs * 1 * step * 1j)) for step in self.steps]
+        return real_imag
 
     def approximate_structural_wavelet_embedding(self):
         """
