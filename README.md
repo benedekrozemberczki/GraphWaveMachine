@@ -75,7 +75,7 @@ Creating an embedding of the default dataset in 128 dimensions.
 $ python src/main.py --sample-number 128
 ```
 
-------------------------------------------------
+------------------------------------
 
 **License**
 
